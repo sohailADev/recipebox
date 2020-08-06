@@ -1,1 +1,18 @@
-<h2>HEllo WORLD</h2>
+<div class = container>
+    <h2>HEllo WORLD{{welcome_name}}</h2>
+
+    <ul>
+    {% for post in recipes%}
+    <li>
+        <a href="/post/{{ post.id }}/">{{ post.title }}</a> - {{ post.title }} - by {{post.author.name}} 
+        <ul>
+            <li>
+            {{ post.description}}
+            </li>
+        </ul>
+    </li>
+    {% endfor %}
+    </ul>
+    
+
+</div>
