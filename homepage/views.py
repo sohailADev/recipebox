@@ -8,4 +8,4 @@ def index(request):
 
 def post_detail(request, post_id):
     my_recipe = Recipe.objects.filter(id=post_id).first()
-    return render(request, "post_detail.html", {"post_id": my_recipe})
+    return render(request, "post_detail.html", {"post": my_recipe})
