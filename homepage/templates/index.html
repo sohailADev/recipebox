@@ -1,9 +1,11 @@
+{% include 'navbar.html' %}
+<hr>
 <div class = "container">
     <h2>HEllo WORLD {{welcome_name}}</h2>
-    <h2>Am I authenticated? {{ request.user.is.authenticated }}</h2>
+    <h2>Am I authenticated? {{ request.user.is_authenticated }}</h2>
     <ul>
     {% for post in recipes%}
-    <li>
+    <li style="border:3px dashed black;padding :20px; margin:5px;">
         <a href="/post/{{ post.id }}/">
         {{ post.title }}</a> - {{ post.title }} - by {{post.author.name}} 
         <ul>
@@ -11,6 +13,10 @@
             {{ post.description}}
             </li>
         </ul>
+        <hr>
+            {% if request.user.is_authenticated %}
+        <a  href="/addfavorite/{{ post.id }}/"> Add to Favorite</a>
+	{% endif %}
     </li>
     {% endfor %}
     </ul>

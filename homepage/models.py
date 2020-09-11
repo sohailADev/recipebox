@@ -1,14 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 
 class Author(models.Model):
     name = models.CharField(max_length=80, default='Author Name')
     bio = models.TextField(default='')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+    fav_recipies = models.ManyToManyField("Recipe",null=True,blank=True,related_name="fav_recipies")
     def __str__(self):
         return self.name
 

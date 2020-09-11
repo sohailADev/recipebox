@@ -1,0 +1,20 @@
+{% include 'navbar.html' %}
+<hr>
+
+
+<h2>Favorites</h2>
+
+{% for recipe in recipes%}
+    <li style="border:3px dashed black;padding :20px; margin:5px;">
+        <a href="/recipe/{{ recipe.id }}/">
+        {{ recipe.title }}</a> - {{ recipe.title }} - by {{recipe.author.name}} 
+        <ul>
+            <li>
+            {{ recipe.description}}
+            </li>
+        </ul>
+    </li>
+    {% endfor %}
+
+
+    <a href="{% url 'homepage' %}">Home</a>

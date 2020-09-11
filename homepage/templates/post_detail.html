@@ -1,11 +1,21 @@
-<div class="container">
+{% include 'navbar.html' %}
+<hr>
+
+
+<div style="border:1px solid black; margin:20px;padding:20px;">
     {% if not post %}
     <h1>this post doesn't exist</h1>
     {% else %}
     <h2>{{ post.title }}</h2>
-    <h4>{{ post.author.name }}</h4>
+    
+    <a href="/author/{{post.author.id}}/" ><h4>{{ post.author.name }}</h4></a>
     <p>{{ post.description }}</p>
     <p>{{ post.time_required }}</p>
     <p>{{ post.instructions }}</p>
+    	<hr>
+	{% if post.author.user == request.user or request.user.is_staff == True %}
+		<a href="/editrecipe/{{ post.id }}/"> Edit</a>
+	{% endif %}
+
     {% endif %}
 </div>

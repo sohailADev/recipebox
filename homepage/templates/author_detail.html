@@ -1,0 +1,21 @@
+{% include 'navbar.html' %}
+<hr>
+<div class="card" style="border:1px solid black; margin:20px;padding:20px;" >
+  <h1 class="card-header">Author Detail page </h1>
+  <hr>
+  <div class="card-body">
+    <h5 class="card-title">Name : {{author_name.name}} </h5>
+    <h5 class="card-title">Bio :  </h5>
+    <p class="card-text">{{author_name.bio}}</p>
+    <div class="list-group">
+        {% for a in author_detail%}          
+            <a href="/post/{{a.id}}/" class="list-group-item list-group-item-action "> {{a.title}} </a>     
+        {%endfor%}
+        <hr>
+
+      </div>
+      <a href="{% url 'fav_recipe_page' author_name.id %}" type="button"  class="btn btn-outline-dark"><button>Favorite Collection</button> </a><br>
+     
+  </div>
+</div>
+

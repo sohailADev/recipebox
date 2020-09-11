@@ -20,9 +20,13 @@ from homepage import views
 
 urlpatterns = [
     path('', views.index, name="homepage"),
-    path('post/<int:post_id>/', views.post_detail),
+    path('favorite/<int:user_id>/', views.fav_recipe_view, name="fav_recipe_page"),
+    path('addfavorite/<str:recipe_id>/', views.add_favorite_recipe_view, name="add_fav_recipe_page"),
+    path('post/<int:post_id>/', views.post_detail,name="recipe_detail_page"),
+    path('author/<int:author_id>/', views.author_detail,name="author_detail_page"),
     path('newrecipe/', views.add_recipe_form, name="newrecipe"),
     path('newauthor/', views.add_author, name="newauthor"),
+    path('editrecipe/<int:recipe_id>/', views.edit_recipe_view, name="edit_recipe"),
     path('login/', views.login_view, name="loginview"),
     path('logout/', views.logout_view, name = "logoutview"),
     path('signup/', views.signup_view, name="signup"),
